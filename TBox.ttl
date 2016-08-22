@@ -124,15 +124,29 @@ gw:wohntIn a owl:ObjectProperty ;
 # #################################################################
 # 
 # 
-# http://www.hs-anhalt.de/gameworld/istGeborenAm
+# http://hathagat.de/gameworld/nachname
 
-gw:istGeborenAm a owl:DatatypeProperty ;
+:nachname a owl:DatatypeProperty ;
+	rdfs:domain gw:Person .
+# 
+# http://hathagat.de/gameworld/name
+
+:name a owl:DatatypeProperty ;
+	rdfs:domain gw:Adelshaus , gw:Ball , gw:Krieg , gw:Ort , gw:Schlacht , gw:Treffen , gw:Unternehmen , gw:Werk .
+# 
+# http://hathagat.de/gameworld/vorname
+
+:vorname a owl:DatatypeProperty .
+# 
+# http://www.hs-anhalt.de/gameworld/geburtstag
+
+gw:geburtstag a owl:DatatypeProperty ;
 	rdfs:domain gw:Person ;
 	rdfs:range xsd:dateTime .
 # 
-# http://www.hs-anhalt.de/gameworld/istGestorbenAm
+# http://www.hs-anhalt.de/gameworld/todestag
 
-gw:istGestorbenAm a owl:DatatypeProperty ;
+gw:todestag a owl:DatatypeProperty ;
 	rdfs:domain gw:Person ;
 	rdfs:range xsd:dateTime .
 # 
