@@ -130,12 +130,16 @@
 # http://www.hs-anhalt.de/gameworld/istGeborenAm
 
 :istGeborenAm a owl:DatatypeProperty ;
-	rdfs:subPropertyOf :isConnectedTo .
+	rdfs:subPropertyOf :isConnectedTo ;
+	rdfs:domain <http://www.hs-anhalt.de/gameworld//Person> ;
+	rdfs:range xsd:dateTime .
 # 
 # http://www.hs-anhalt.de/gameworld/istGestorbenAm
 
 :istGestorbenAm a owl:DatatypeProperty ;
-	rdfs:subPropertyOf :istGeborenAm .
+	rdfs:subPropertyOf :isConnectedTo ;
+	rdfs:domain <http://www.hs-anhalt.de/gameworld//Person> ;
+	rdfs:range xsd:dateTime .
 # 
 # 
 # 
