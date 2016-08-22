@@ -1,0 +1,542 @@
+@prefix : <http://hathagat.de/gameworld/> .
+@prefix gw: <http://www.hs-anhalt.de/gameworld/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+<http://hathagat.de/gameworld/> a owl:Ontology .
+# 
+# 
+# #################################################################
+# #
+# #    Object Properties
+# #
+# #################################################################
+# 
+# 
+# http://www.hs-anhalt.de/gameworld/besitzt
+
+gw:besitzt a owl:ObjectProperty ;
+	rdfs:subPropertyOf gw:isConnectedTo ;
+	owl:inverseOf gw:gehört ;
+	rdfs:domain gw:Adelshaus , gw:Person , gw:Unternehmen ;
+	rdfs:range gw:Ansiedlung , gw:Feld , gw:Gebäude , gw:Sklave , gw:Unternehmen , gw:Werk .
+# 
+# http://www.hs-anhalt.de/gameworld/dientUnter
+
+gw:dientUnter a owl:ObjectProperty ;
+	rdfs:subPropertyOf gw:isConnectedTo ;
+	owl:inverseOf gw:hatUntergebenen ;
+	rdfs:domain gw:Person ;
+	rdfs:range gw:Person .
+# 
+# http://www.hs-anhalt.de/gameworld/gehoertAn
+
+gw:gehoertAn a owl:ObjectProperty ;
+	rdfs:subPropertyOf gw:isConnectedTo ;
+	owl:inverseOf gw:hatMitglied ;
+	rdfs:domain gw:Adliger ;
+	rdfs:range gw:Adelshaus .
+# 
+# http://www.hs-anhalt.de/gameworld/gehört
+
+gw:gehört a owl:ObjectProperty ;
+	rdfs:subPropertyOf gw:isConnectedTo ;
+	rdfs:domain gw:Ansiedlung , gw:Feld , gw:Gebäude , gw:Sklave , gw:Unternehmen , gw:Werk ;
+	rdfs:range gw:Adelshaus , gw:Person , gw:Unternehmen .
+# 
+# http://www.hs-anhalt.de/gameworld/hatBeruf
+
+gw:hatBeruf a owl:ObjectProperty ;
+	rdfs:subPropertyOf gw:isConnectedTo ;
+	rdfs:domain gw:Person .
+# 
+# http://www.hs-anhalt.de/gameworld/hatEinwohner
+
+gw:hatEinwohner a owl:ObjectProperty ;
+	rdfs:subPropertyOf gw:isConnectedTo ;
+	owl:inverseOf gw:wohntIn ;
+	rdfs:domain gw:Ansiedlung , gw:Gebäude , gw:Herrschaftsgebiet ;
+	rdfs:range gw:Person .
+# 
+# http://www.hs-anhalt.de/gameworld/hatErschaffen
+
+gw:hatErschaffen a owl:ObjectProperty ;
+	rdfs:subPropertyOf gw:isConnectedTo ;
+	rdfs:domain gw:Künstler .
+# 
+# http://www.hs-anhalt.de/gameworld/hatMitglied
+
+gw:hatMitglied a owl:ObjectProperty ;
+	rdfs:subPropertyOf gw:isConnectedTo ;
+	rdfs:domain gw:Adelshaus ;
+	rdfs:range gw:Adliger .
+# 
+# http://www.hs-anhalt.de/gameworld/hatUntergebenen
+
+gw:hatUntergebenen a owl:ObjectProperty ;
+	rdfs:subPropertyOf gw:isConnectedTo ;
+	rdfs:domain gw:Person ;
+	rdfs:range gw:Person .
+# 
+# http://www.hs-anhalt.de/gameworld/isConnectedTo
+
+gw:isConnectedTo a owl:ObjectProperty .
+# 
+# http://www.hs-anhalt.de/gameworld/liegtIn
+
+gw:liegtIn a owl:ObjectProperty ;
+	rdfs:subPropertyOf gw:isConnectedTo ;
+	rdfs:domain gw:Ort ;
+	rdfs:range gw:Ort .
+# 
+# http://www.hs-anhalt.de/gameworld/regiert
+
+gw:regiert a owl:ObjectProperty ;
+	rdfs:subPropertyOf gw:isConnectedTo ;
+	owl:inverseOf gw:wirdRegiertVon ;
+	rdfs:domain gw:Adliger , gw:Politiker ;
+	rdfs:range gw:Ansiedlung , gw:Herrschaftsgebiet .
+# 
+# http://www.hs-anhalt.de/gameworld/wirdRegiertVon
+
+gw:wirdRegiertVon a owl:ObjectProperty ;
+	rdfs:subPropertyOf gw:isConnectedTo ;
+	rdfs:domain gw:Ansiedlung , gw:Herrschaftsgebiet ;
+	rdfs:range gw:Adliger , gw:Politiker .
+# 
+# http://www.hs-anhalt.de/gameworld/wohntIn
+
+gw:wohntIn a owl:ObjectProperty ;
+	rdfs:subPropertyOf gw:isConnectedTo ;
+	rdfs:domain gw:Person ;
+	rdfs:range gw:Ansiedlung , gw:Gebäude , gw:Herrschaftsgebiet .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Data properties
+# #
+# #################################################################
+# 
+# 
+# http://www.hs-anhalt.de/gameworld/istGeborenAm
+
+gw:istGeborenAm a owl:DatatypeProperty ;
+	rdfs:domain gw:Person ;
+	rdfs:range xsd:dateTime .
+# 
+# http://www.hs-anhalt.de/gameworld/istGestorbenAm
+
+gw:istGestorbenAm a owl:DatatypeProperty ;
+	rdfs:domain gw:Person ;
+	rdfs:range xsd:dateTime .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Classes
+# #
+# #################################################################
+# 
+# 
+# http://www.hs-anhalt.de/gameworld/Adelshaus
+
+gw:Adelshaus a owl:Class ;
+	rdfs:subClassOf gw:Class .
+# 
+# http://www.hs-anhalt.de/gameworld/Adliger
+
+gw:Adliger a owl:Class ;
+	rdfs:subClassOf gw:Person .
+# 
+# http://www.hs-anhalt.de/gameworld/Ansiedlung
+
+gw:Ansiedlung a owl:Class ;
+	rdfs:subClassOf gw:Ort .
+# 
+# http://www.hs-anhalt.de/gameworld/Arzt
+
+gw:Arzt a owl:Class ;
+	rdfs:subClassOf gw:Mediziner .
+# 
+# http://www.hs-anhalt.de/gameworld/Bader
+
+gw:Bader a owl:Class ;
+	rdfs:subClassOf gw:Mediziner .
+# 
+# http://www.hs-anhalt.de/gameworld/Ball
+
+gw:Ball a owl:Class ;
+	rdfs:subClassOf gw:Feier .
+# 
+# http://www.hs-anhalt.de/gameworld/Barde
+
+gw:Barde a owl:Class ;
+	rdfs:subClassOf gw:Künstler .
+# 
+# http://www.hs-anhalt.de/gameworld/Bauer
+
+gw:Bauer a owl:Class ;
+	rdfs:subClassOf gw:Beruf , gw:Person .
+# 
+# http://www.hs-anhalt.de/gameworld/Berg
+
+gw:Berg a owl:Class ;
+	rdfs:subClassOf gw:Ort .
+# 
+# http://www.hs-anhalt.de/gameworld/Beruf
+
+gw:Beruf a owl:Class ;
+	rdfs:subClassOf gw:Class .
+# 
+# http://www.hs-anhalt.de/gameworld/Bild
+
+gw:Bild a owl:Class ;
+	rdfs:subClassOf gw:Werk .
+# 
+# http://www.hs-anhalt.de/gameworld/Bildhauer
+
+gw:Bildhauer a owl:Class ;
+	rdfs:subClassOf gw:Künstler .
+# 
+# http://www.hs-anhalt.de/gameworld/Buch
+
+gw:Buch a owl:Class ;
+	rdfs:subClassOf gw:Werk .
+# 
+# http://www.hs-anhalt.de/gameworld/Burg
+
+gw:Burg a owl:Class ;
+	rdfs:subClassOf gw:Ansiedlung , gw:Gebäude .
+# 
+# http://www.hs-anhalt.de/gameworld/Class
+
+gw:Class a owl:Class .
+# 
+# http://www.hs-anhalt.de/gameworld/Dorf
+
+gw:Dorf a owl:Class ;
+	rdfs:subClassOf gw:Ansiedlung .
+# 
+# http://www.hs-anhalt.de/gameworld/Ereignis
+
+gw:Ereignis a owl:Class ;
+	rdfs:subClassOf gw:Class .
+# 
+# http://www.hs-anhalt.de/gameworld/Feier
+
+gw:Feier a owl:Class ;
+	rdfs:subClassOf gw:Ereignis .
+# 
+# http://www.hs-anhalt.de/gameworld/Feld
+
+gw:Feld a owl:Class ;
+	rdfs:subClassOf gw:Ort .
+# 
+# http://www.hs-anhalt.de/gameworld/Fluss
+
+gw:Fluss a owl:Class ;
+	rdfs:subClassOf gw:Ort .
+# 
+# http://www.hs-anhalt.de/gameworld/Fürst
+
+gw:Fürst a owl:Class ;
+	rdfs:subClassOf gw:Adliger .
+# 
+# http://www.hs-anhalt.de/gameworld/Fürstentum
+
+gw:Fürstentum a owl:Class ;
+	rdfs:subClassOf gw:Herrschaftsgebiet .
+# 
+# http://www.hs-anhalt.de/gameworld/Fürstin
+
+gw:Fürstin a owl:Class ;
+	rdfs:subClassOf gw:Adliger .
+# 
+# http://www.hs-anhalt.de/gameworld/Geburt
+
+gw:Geburt a owl:Class ;
+	rdfs:subClassOf gw:Ereignis .
+# 
+# http://www.hs-anhalt.de/gameworld/Gebäude
+
+gw:Gebäude a owl:Class ;
+	rdfs:subClassOf gw:Ort .
+# 
+# http://www.hs-anhalt.de/gameworld/Geistlicher
+
+gw:Geistlicher a owl:Class ;
+	rdfs:subClassOf gw:Person .
+# 
+# http://www.hs-anhalt.de/gameworld/Geschwister
+
+gw:Geschwister a owl:Class ;
+	rdfs:subClassOf gw:Person .
+# 
+# http://www.hs-anhalt.de/gameworld/Graf
+
+gw:Graf a owl:Class ;
+	rdfs:subClassOf gw:Adliger .
+# 
+# http://www.hs-anhalt.de/gameworld/Gräfin
+
+gw:Gräfin a owl:Class ;
+	rdfs:subClassOf gw:Adliger .
+# 
+# http://www.hs-anhalt.de/gameworld/Gründung
+
+gw:Gründung a owl:Class ;
+	rdfs:subClassOf gw:Ereignis .
+# 
+# http://www.hs-anhalt.de/gameworld/Haus
+
+gw:Haus a owl:Class ;
+	rdfs:subClassOf gw:Gebäude .
+# 
+# http://www.hs-anhalt.de/gameworld/Heilkundiger
+
+gw:Heilkundiger a owl:Class ;
+	rdfs:subClassOf gw:Mediziner .
+# 
+# http://www.hs-anhalt.de/gameworld/Herrschaftsgebiet
+
+gw:Herrschaftsgebiet a owl:Class ;
+	rdfs:subClassOf gw:Ort .
+# 
+# http://www.hs-anhalt.de/gameworld/Hochzeit
+
+gw:Hochzeit a owl:Class ;
+	rdfs:subClassOf gw:Feier .
+# 
+# http://www.hs-anhalt.de/gameworld/Händler
+
+gw:Händler a owl:Class ;
+	rdfs:subClassOf gw:Beruf , gw:Person .
+# 
+# http://www.hs-anhalt.de/gameworld/Hütte
+
+gw:Hütte a owl:Class ;
+	rdfs:subClassOf gw:Gebäude .
+# 
+# http://www.hs-anhalt.de/gameworld/Kaiser
+
+gw:Kaiser a owl:Class ;
+	rdfs:subClassOf gw:Adliger .
+# 
+# http://www.hs-anhalt.de/gameworld/Kaiserin
+
+gw:Kaiserin a owl:Class ;
+	rdfs:subClassOf gw:Adliger .
+# 
+# http://www.hs-anhalt.de/gameworld/Kaiserreich
+
+gw:Kaiserreich a owl:Class ;
+	rdfs:subClassOf gw:Herrschaftsgebiet .
+# 
+# http://www.hs-anhalt.de/gameworld/Kind
+
+gw:Kind a owl:Class ;
+	rdfs:subClassOf gw:Person .
+# 
+# http://www.hs-anhalt.de/gameworld/Kirche
+
+gw:Kirche a owl:Class ;
+	rdfs:subClassOf gw:Gebäude .
+# 
+# http://www.hs-anhalt.de/gameworld/Kloster
+
+gw:Kloster a owl:Class ;
+	rdfs:subClassOf gw:Ansiedlung , gw:Gebäude .
+# 
+# http://www.hs-anhalt.de/gameworld/Krieg
+
+gw:Krieg a owl:Class ;
+	rdfs:subClassOf gw:Ereignis .
+# 
+# http://www.hs-anhalt.de/gameworld/Kräuterkundiger
+
+gw:Kräuterkundiger a owl:Class ;
+	rdfs:subClassOf gw:Mediziner .
+# 
+# http://www.hs-anhalt.de/gameworld/Krönung
+
+gw:Krönung a owl:Class ;
+	rdfs:subClassOf gw:Feier .
+# 
+# http://www.hs-anhalt.de/gameworld/König
+
+gw:König a owl:Class ;
+	rdfs:subClassOf gw:Adliger .
+# 
+# http://www.hs-anhalt.de/gameworld/Königin
+
+gw:Königin a owl:Class ;
+	rdfs:subClassOf gw:Adliger .
+# 
+# http://www.hs-anhalt.de/gameworld/Königreich
+
+gw:Königreich a owl:Class ;
+	rdfs:subClassOf gw:Herrschaftsgebiet .
+# 
+# http://www.hs-anhalt.de/gameworld/Künstler
+
+gw:Künstler a owl:Class ;
+	rdfs:subClassOf gw:Beruf , gw:Person .
+# 
+# http://www.hs-anhalt.de/gameworld/Länderei
+
+gw:Länderei a owl:Class ;
+	rdfs:subClassOf gw:Ansiedlung .
+# 
+# http://www.hs-anhalt.de/gameworld/Maler
+
+gw:Maler a owl:Class ;
+	rdfs:subClassOf gw:Künstler .
+# 
+# http://www.hs-anhalt.de/gameworld/Mediziner
+
+gw:Mediziner a owl:Class ;
+	rdfs:subClassOf gw:Beruf , gw:Person .
+# 
+# http://www.hs-anhalt.de/gameworld/Meer
+
+gw:Meer a owl:Class ;
+	rdfs:subClassOf gw:Ort .
+# 
+# http://www.hs-anhalt.de/gameworld/Militär
+
+gw:Militär a owl:Class ;
+	rdfs:subClassOf gw:Beruf , gw:Person .
+# 
+# http://www.hs-anhalt.de/gameworld/Mutter
+
+gw:Mutter a owl:Class ;
+	rdfs:subClassOf gw:Person .
+# 
+# http://www.hs-anhalt.de/gameworld/Mönch
+
+gw:Mönch a owl:Class ;
+	rdfs:subClassOf gw:Geistlicher .
+# 
+# http://www.hs-anhalt.de/gameworld/Nonne
+
+gw:Nonne a owl:Class ;
+	rdfs:subClassOf gw:Geistlicher .
+# 
+# http://www.hs-anhalt.de/gameworld/Ort
+
+gw:Ort a owl:Class ;
+	rdfs:subClassOf gw:Class .
+# 
+# http://www.hs-anhalt.de/gameworld/Person
+
+gw:Person a owl:Class ;
+	rdfs:subClassOf gw:Class .
+# 
+# http://www.hs-anhalt.de/gameworld/Platz
+
+gw:Platz a owl:Class ;
+	rdfs:subClassOf gw:Ort .
+# 
+# http://www.hs-anhalt.de/gameworld/Politiker
+
+gw:Politiker a owl:Class ;
+	rdfs:subClassOf gw:Beruf , gw:Person .
+# 
+# http://www.hs-anhalt.de/gameworld/Priester
+
+gw:Priester a owl:Class ;
+	rdfs:subClassOf gw:Geistlicher .
+# 
+# http://www.hs-anhalt.de/gameworld/Prinz
+
+gw:Prinz a owl:Class ;
+	rdfs:subClassOf gw:Adliger .
+# 
+# http://www.hs-anhalt.de/gameworld/Prinzessin
+
+gw:Prinzessin a owl:Class ;
+	rdfs:subClassOf gw:Adliger .
+# 
+# http://www.hs-anhalt.de/gameworld/Region
+
+gw:Region a owl:Class ;
+	rdfs:subClassOf gw:Ort .
+# 
+# http://www.hs-anhalt.de/gameworld/Ritter
+
+gw:Ritter a owl:Class ;
+	rdfs:subClassOf gw:Adliger , gw:Militär .
+# 
+# http://www.hs-anhalt.de/gameworld/Schlacht
+
+gw:Schlacht a owl:Class ;
+	rdfs:subClassOf gw:Ereignis .
+# 
+# http://www.hs-anhalt.de/gameworld/Schloss
+
+gw:Schloss a owl:Class ;
+	rdfs:subClassOf gw:Ansiedlung , gw:Gebäude .
+# 
+# http://www.hs-anhalt.de/gameworld/Schriftsteller
+
+gw:Schriftsteller a owl:Class ;
+	rdfs:subClassOf gw:Künstler .
+# 
+# http://www.hs-anhalt.de/gameworld/See
+
+gw:See a owl:Class ;
+	rdfs:subClassOf gw:Ort .
+# 
+# http://www.hs-anhalt.de/gameworld/Sklave
+
+gw:Sklave a owl:Class ;
+	rdfs:subClassOf gw:Person .
+# 
+# http://www.hs-anhalt.de/gameworld/Skulptur
+
+gw:Skulptur a owl:Class ;
+	rdfs:subClassOf gw:Werk .
+# 
+# http://www.hs-anhalt.de/gameworld/Soldat
+
+gw:Soldat a owl:Class ;
+	rdfs:subClassOf gw:Militär .
+# 
+# http://www.hs-anhalt.de/gameworld/Stadt
+
+gw:Stadt a owl:Class ;
+	rdfs:subClassOf gw:Ansiedlung .
+# 
+# http://www.hs-anhalt.de/gameworld/Tod
+
+gw:Tod a owl:Class ;
+	rdfs:subClassOf gw:Ereignis .
+# 
+# http://www.hs-anhalt.de/gameworld/Treffen
+
+gw:Treffen a owl:Class ;
+	rdfs:subClassOf gw:Ereignis .
+# 
+# http://www.hs-anhalt.de/gameworld/Unternehmen
+
+gw:Unternehmen a owl:Class ;
+	rdfs:subClassOf gw:Class .
+# 
+# http://www.hs-anhalt.de/gameworld/Vater
+
+gw:Vater a owl:Class ;
+	rdfs:subClassOf gw:Person .
+# 
+# http://www.hs-anhalt.de/gameworld/Werk
+
+gw:Werk a owl:Class ;
+	rdfs:subClassOf gw:Class .
+# 
+# Generated by the OWL API (version 4.2.1.20160306-0033) https://github.com/owlcs/owlapi
