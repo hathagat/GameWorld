@@ -17,6 +17,21 @@
 # #################################################################
 # 
 # 
+# http://hathagat.de/gameworld/fließtInMeer
+
+:fließtInMeer a owl:ObjectProperty ;
+	rdfs:subPropertyOf gw:isConnectedTo ;
+	owl:inverseOf :hatZufluss ;
+	rdfs:domain gw:Fluss ;
+	rdfs:range gw:Meer .
+# 
+# http://hathagat.de/gameworld/hatZufluss
+
+:hatZufluss a owl:ObjectProperty ;
+	rdfs:subPropertyOf gw:isConnectedTo ;
+	rdfs:domain gw:Meer ;
+	rdfs:range gw:Fluss .
+# 
 # http://www.hs-anhalt.de/gameworld/besitzt
 
 gw:besitzt a owl:ObjectProperty ;
