@@ -523,6 +523,7 @@ gw:Nonne a owl:Class ;
 
 gw:Ort a owl:Class ;
 	rdfs:subClassOf gw:Class ;
+	rdfs:comment "Der Schauplatz eines Geschehenes"@de , "The setting of an event."@en ;
 	rdfs:label "Ort"@de , "place"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Person
