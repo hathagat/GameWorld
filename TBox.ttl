@@ -17,6 +17,19 @@
 # #################################################################
 # 
 # 
+# http://hathagat.de/gameworld/OWLObjectProperty_3f389d8f_b280_408c_a636_627b025c6fde
+
+:OWLObjectProperty_3f389d8f_b280_408c_a636_627b025c6fde a owl:ObjectProperty ;
+	rdfs:subPropertyOf gw:isConnectedTo ;
+	rdfs:domain gw:Ansiedlung ;
+	rdfs:range _:genid1 .
+
+_:genid1 a owl:Restriction ;
+	owl:onProperty :OWLDataProperty_4395d10c_3197_43e5_a40a_f8444039d895 ;
+	owl:allValuesFrom rdfs:Literal .
+
+:OWLObjectProperty_3f389d8f_b280_408c_a636_627b025c6fde rdfs:label "hatPLZ"@de .
+# 
 # http://hathagat.de/gameworld/fließtInMeer
 
 :fließtInMeer a owl:ObjectProperty ;
