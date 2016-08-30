@@ -153,6 +153,13 @@ gw:wohntIn a owl:ObjectProperty ;
 # #################################################################
 # 
 # 
+# http://hathagat.de/gameworld/OWLDataProperty_05a50b99_7097_4cb9_a75d_654733f9f822
+
+:OWLDataProperty_05a50b99_7097_4cb9_a75d_654733f9f822 a owl:DatatypeProperty ;
+	rdfs:domain gw:Class ;
+	rdfs:comment "prefLabel bezeichnet das Hauptlabel der Ressource."@de , "prefLabel defines the main label of the resource."@en ;
+	rdfs:label "prefLabel"@de , "prefLabel"@en .
+# 
 # http://hathagat.de/gameworld/OWLDataProperty_213d9f6f_80a2_4f9b_b74f_9587bb11075a
 
 :OWLDataProperty_213d9f6f_80a2_4f9b_b74f_9587bb11075a a owl:DatatypeProperty ;
