@@ -16,6 +16,19 @@
 # #################################################################
 # 
 # 
+# http://www.hs-anhalt.de/gameworld/OWLObjectProperty_4f1b1fe6_3e2b_454a_b7e9_a72743223c9b
+
+:OWLObjectProperty_4f1b1fe6_3e2b_454a_b7e9_a72743223c9b a owl:ObjectProperty ;
+	rdfs:subPropertyOf :isConnectedTo ;
+	rdfs:domain :Class ;
+	rdfs:range _:genid1 .
+
+_:genid1 a owl:Restriction ;
+	owl:onProperty :Bild ;
+	owl:allValuesFrom xsd:anyURI .
+
+:OWLObjectProperty_4f1b1fe6_3e2b_454a_b7e9_a72743223c9b rdfs:label "hasImage"@de .
+# 
 # http://www.hs-anhalt.de/gameworld/bekanntFür
 
 :bekanntFür a owl:ObjectProperty ;
