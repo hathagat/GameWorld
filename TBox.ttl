@@ -30,6 +30,13 @@ _:genid1 a owl:Restriction ;
 
 :OWLObjectProperty_3f389d8f_b280_408c_a636_627b025c6fde rdfs:label "hatPLZ"@de .
 # 
+# http://hathagat.de/gameworld/OWLObjectProperty_6b65e757_352e_497b_b940_f28103d0691a
+
+:OWLObjectProperty_6b65e757_352e_497b_b940_f28103d0691a a owl:ObjectProperty ;
+	rdfs:subPropertyOf gw:isConnectedTo ;
+	rdfs:domain gw:Berg ;
+	rdfs:label "hatHöhe"@de .
+# 
 # http://hathagat.de/gameworld/fließtInMeer
 
 :fließtInMeer a owl:ObjectProperty ;
@@ -176,7 +183,13 @@ gw:wohntIn a owl:ObjectProperty ;
 # http://hathagat.de/gameworld/OWLDataProperty_213d9f6f_80a2_4f9b_b74f_9587bb11075a
 
 :OWLDataProperty_213d9f6f_80a2_4f9b_b74f_9587bb11075a a owl:DatatypeProperty ;
-	rdfs:domain gw:Berg ;
+	rdfs:domain _:genid2 .
+
+_:genid2 a owl:Restriction ;
+	owl:onProperty :OWLObjectProperty_6b65e757_352e_497b_b940_f28103d0691a ;
+	owl:allValuesFrom gw:Berg .
+
+:OWLDataProperty_213d9f6f_80a2_4f9b_b74f_9587bb11075a rdfs:range xsd:double ;
 	rdfs:label "höhe"@de .
 # 
 # http://hathagat.de/gameworld/OWLDataProperty_4395d10c_3197_43e5_a40a_f8444039d895
