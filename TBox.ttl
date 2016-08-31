@@ -1,4 +1,5 @@
-@prefix : <http://www.hs-anhalt.de/gameworld/> .
+@prefix : <http://www.hathagat.de/gameworld/> .
+@prefix gw: <http://www.hs-anhalt.de/gameworld/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
@@ -6,7 +7,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
-<http://www.hs-anhalt.de/gameworld/> a owl:Ontology .
+<http://www.hathagat.de/gameworld/> a owl:Ontology .
 # 
 # 
 # #################################################################
@@ -16,202 +17,212 @@
 # #################################################################
 # 
 # 
-# http://www.hs-anhalt.de/gameworld/OWLObjectProperty_4f1b1fe6_3e2b_454a_b7e9_a72743223c9b
-
-:OWLObjectProperty_4f1b1fe6_3e2b_454a_b7e9_a72743223c9b a owl:ObjectProperty ;
-	rdfs:subPropertyOf :isConnectedTo ;
-	rdfs:domain :Class ;
-	rdfs:range _:genid1 .
-
-_:genid1 a owl:Restriction ;
-	owl:onProperty :Bild ;
-	owl:allValuesFrom xsd:anyURI .
-
-:OWLObjectProperty_4f1b1fe6_3e2b_454a_b7e9_a72743223c9b rdfs:label "hasImage"@de .
-# 
 # http://www.hs-anhalt.de/gameworld/bekanntFür
 
-:bekanntFür a owl:ObjectProperty ;
-	rdfs:subPropertyOf :isConnectedTo ;
-	rdfs:domain :Adelshaus , :Ort , :Person , :Unternehmen .
+gw:bekanntFür a owl:ObjectProperty ;
+	rdfs:subPropertyOf gw:isConnectedTo ;
+	rdfs:domain gw:Adelshaus , gw:Ort , gw:Person , gw:Unternehmen .
 # 
 # http://www.hs-anhalt.de/gameworld/besitzt
 
-:besitzt a owl:ObjectProperty ;
-	rdfs:subPropertyOf :isConnectedTo ;
-	owl:inverseOf :gehört ;
-	rdfs:domain :Adelshaus , :Person , :Unternehmen ;
-	rdfs:range :Ansiedlung , :Feld , :Gebäude , :Sklave , :Unternehmen , :Werk .
+gw:besitzt a owl:ObjectProperty ;
+	rdfs:subPropertyOf gw:isConnectedTo ;
+	owl:inverseOf gw:gehört ;
+	rdfs:domain gw:Adelshaus , gw:Person , gw:Unternehmen ;
+	rdfs:range gw:Ansiedlung , gw:Feld , gw:Gebäude , gw:Sklave , gw:Unternehmen , gw:Werk .
 # 
 # http://www.hs-anhalt.de/gameworld/dientUnter
 
-:dientUnter a owl:ObjectProperty ;
-	rdfs:subPropertyOf :isConnectedTo ;
-	owl:inverseOf :hatUntergebenen ;
-	rdfs:domain :Person ;
-	rdfs:range :Person .
+gw:dientUnter a owl:ObjectProperty ;
+	rdfs:subPropertyOf gw:isConnectedTo ;
+	owl:inverseOf gw:hatUntergebenen ;
+	rdfs:domain gw:Person ;
+	rdfs:range gw:Person .
 # 
 # http://www.hs-anhalt.de/gameworld/fließtInMeer
 
-:fließtInMeer a owl:ObjectProperty ;
-	rdfs:subPropertyOf :isConnectedTo ;
-	owl:inverseOf :hatZufluss ;
-	rdfs:domain :Fluss ;
-	rdfs:range :Meer .
+gw:fließtInMeer a owl:ObjectProperty ;
+	rdfs:subPropertyOf gw:isConnectedTo ;
+	owl:inverseOf gw:hatZufluss ;
+	rdfs:domain gw:Fluss ;
+	rdfs:range gw:Meer .
 # 
 # http://www.hs-anhalt.de/gameworld/gehoertAn
 
-:gehoertAn a owl:ObjectProperty ;
-	rdfs:subPropertyOf :isConnectedTo ;
-	owl:inverseOf :hatMitglied ;
-	rdfs:domain :Adliger ;
-	rdfs:range :Adelshaus .
+gw:gehoertAn a owl:ObjectProperty ;
+	rdfs:subPropertyOf gw:isConnectedTo ;
+	owl:inverseOf gw:hatMitglied ;
+	rdfs:domain gw:Adliger ;
+	rdfs:range gw:Adelshaus .
 # 
 # http://www.hs-anhalt.de/gameworld/gehört
 
-:gehört a owl:ObjectProperty ;
-	rdfs:subPropertyOf :isConnectedTo ;
-	rdfs:domain :Ansiedlung , :Feld , :Gebäude , :Sklave , :Unternehmen , :Werk ;
-	rdfs:range :Adelshaus , :Person , :Unternehmen .
+gw:gehört a owl:ObjectProperty ;
+	rdfs:subPropertyOf gw:isConnectedTo ;
+	rdfs:domain gw:Ansiedlung , gw:Feld , gw:Gebäude , gw:Sklave , gw:Unternehmen , gw:Werk ;
+	rdfs:range gw:Adelshaus , gw:Person , gw:Unternehmen .
+# 
+# http://www.hs-anhalt.de/gameworld/hasImage
+
+gw:hasImage a owl:ObjectProperty ;
+	rdfs:subPropertyOf gw:isConnectedTo ;
+	rdfs:range _:genid1 .
+
+_:genid1 a owl:Restriction ;
+	owl:onProperty gw:Bild ;
+	owl:allValuesFrom xsd:anyURI .
+
+gw:hasImage rdfs:label "hasImage"@en , "hatBild"@de .
 # 
 # http://www.hs-anhalt.de/gameworld/hatBeruf
 
-:hatBeruf a owl:ObjectProperty ;
-	rdfs:subPropertyOf :isConnectedTo ;
-	rdfs:domain :Person .
+gw:hatBeruf a owl:ObjectProperty ;
+	rdfs:subPropertyOf gw:isConnectedTo ;
+	rdfs:domain gw:Person ;
+	rdfs:range gw:Beruf .
 # 
 # http://www.hs-anhalt.de/gameworld/hatDoktorand
 
-:hatDoktorand a owl:ObjectProperty ;
-	rdfs:subPropertyOf :isConnectedTo ;
-	owl:inverseOf :promoviertBei ;
-	rdfs:domain :Doktorvater ;
-	rdfs:range :Person .
+gw:hatDoktorand a owl:ObjectProperty ;
+	rdfs:subPropertyOf gw:isConnectedTo ;
+	owl:inverseOf gw:promoviertBei ;
+	rdfs:domain gw:Doktorvater ;
+	rdfs:range gw:Person .
 # 
 # http://www.hs-anhalt.de/gameworld/hatEinwohner
 
-:hatEinwohner a owl:ObjectProperty ;
-	rdfs:subPropertyOf :isConnectedTo ;
-	owl:inverseOf :wohntIn ;
-	rdfs:domain :Ansiedlung , :Gebäude , :Herrschaftsgebiet ;
-	rdfs:range :Person .
+gw:hatEinwohner a owl:ObjectProperty ;
+	rdfs:subPropertyOf gw:isConnectedTo ;
+	owl:inverseOf gw:wohntIn ;
+	rdfs:domain gw:Ansiedlung , gw:Gebäude , gw:Herrschaftsgebiet , gw:Region ;
+	rdfs:range gw:Person .
 # 
 # http://www.hs-anhalt.de/gameworld/hatErschaffen
 
-:hatErschaffen a owl:ObjectProperty ;
-	rdfs:subPropertyOf :isConnectedTo ;
-	rdfs:domain :Künstler .
+gw:hatErschaffen a owl:ObjectProperty ;
+	rdfs:subPropertyOf gw:isConnectedTo ;
+	rdfs:domain gw:Künstler ;
+	rdfs:range gw:Werk .
+# 
+# http://www.hs-anhalt.de/gameworld/hatKind
+
+gw:hatKind a owl:ObjectProperty ;
+	rdfs:subPropertyOf gw:isConnectedTo ;
+	rdfs:domain gw:Mutter , gw:Vater ;
+	rdfs:range gw:Kind ;
+	rdfs:label "hasChild"@en , "hatKind"@de .
 # 
 # http://www.hs-anhalt.de/gameworld/hatMitglied
 
-:hatMitglied a owl:ObjectProperty ;
-	rdfs:subPropertyOf :isConnectedTo ;
-	rdfs:domain :Adelshaus ;
-	rdfs:range :Adliger .
+gw:hatMitglied a owl:ObjectProperty ;
+	rdfs:subPropertyOf gw:isConnectedTo ;
+	rdfs:domain gw:Adelshaus ;
+	rdfs:range gw:Adliger .
 # 
 # http://www.hs-anhalt.de/gameworld/hatMutter
 
-:hatMutter a owl:ObjectProperty ;
-	rdfs:subPropertyOf :isConnectedTo ;
-	rdfs:domain :Person ;
-	rdfs:range :Person .
+gw:hatMutter a owl:ObjectProperty ;
+	rdfs:subPropertyOf gw:isConnectedTo ;
+	rdfs:domain gw:Kind ;
+	rdfs:range gw:Mutter .
 # 
 # http://www.hs-anhalt.de/gameworld/hatNachfolger
 
-:hatNachfolger a owl:ObjectProperty ;
-	rdfs:subPropertyOf :isConnectedTo ;
-	owl:inverseOf :hatVorgänger ;
-	rdfs:domain :Person ;
-	rdfs:range :Person .
+gw:hatNachfolger a owl:ObjectProperty ;
+	rdfs:subPropertyOf gw:isConnectedTo ;
+	owl:inverseOf gw:hatVorgänger ;
+	rdfs:domain gw:Person ;
+	rdfs:range gw:Person .
 # 
 # http://www.hs-anhalt.de/gameworld/hatNationalität
 
-:hatNationalität a owl:ObjectProperty ;
-	rdfs:subPropertyOf :isConnectedTo ;
-	rdfs:domain :Person ;
-	rdfs:range :Nationalität .
+gw:hatNationalität a owl:ObjectProperty ;
+	rdfs:subPropertyOf gw:isConnectedTo ;
+	rdfs:domain gw:Person ;
+	rdfs:range gw:Nationalität .
 # 
 # http://www.hs-anhalt.de/gameworld/hatReligion
 
-:hatReligion a owl:ObjectProperty ;
-	rdfs:subPropertyOf :isConnectedTo ;
-	rdfs:domain :Person ;
-	rdfs:range :Religion .
+gw:hatReligion a owl:ObjectProperty ;
+	rdfs:subPropertyOf gw:isConnectedTo ;
+	rdfs:domain gw:Person ;
+	rdfs:range gw:Religion .
 # 
 # http://www.hs-anhalt.de/gameworld/hatTitel
 
-:hatTitel a owl:ObjectProperty ;
-	rdfs:subPropertyOf :isConnectedTo ;
-	rdfs:domain :Person ;
-	rdfs:range :Titel .
+gw:hatTitel a owl:ObjectProperty ;
+	rdfs:subPropertyOf gw:isConnectedTo ;
+	rdfs:domain gw:Person ;
+	rdfs:range gw:Titel .
 # 
 # http://www.hs-anhalt.de/gameworld/hatUntergebenen
 
-:hatUntergebenen a owl:ObjectProperty ;
-	rdfs:subPropertyOf :isConnectedTo ;
-	rdfs:domain :Person ;
-	rdfs:range :Person .
+gw:hatUntergebenen a owl:ObjectProperty ;
+	rdfs:subPropertyOf gw:isConnectedTo ;
+	rdfs:domain gw:Person ;
+	rdfs:range gw:Person .
 # 
 # http://www.hs-anhalt.de/gameworld/hatVater
 
-:hatVater a owl:ObjectProperty ;
-	rdfs:subPropertyOf :isConnectedTo ;
-	rdfs:domain :Person ;
-	rdfs:range :Person .
+gw:hatVater a owl:ObjectProperty ;
+	rdfs:subPropertyOf gw:isConnectedTo ;
+	rdfs:domain gw:Kind ;
+	rdfs:range gw:Vater ;
+	rdfs:label "hatVater"@de .
 # 
 # http://www.hs-anhalt.de/gameworld/hatVorgänger
 
-:hatVorgänger a owl:ObjectProperty ;
-	rdfs:subPropertyOf :isConnectedTo ;
-	rdfs:domain :Person ;
-	rdfs:range :Person .
+gw:hatVorgänger a owl:ObjectProperty ;
+	rdfs:subPropertyOf gw:isConnectedTo ;
+	rdfs:domain gw:Person ;
+	rdfs:range gw:Person .
 # 
 # http://www.hs-anhalt.de/gameworld/hatZufluss
 
-:hatZufluss a owl:ObjectProperty ;
-	rdfs:subPropertyOf :isConnectedTo ;
-	rdfs:domain :Meer ;
-	rdfs:range :Fluss .
+gw:hatZufluss a owl:ObjectProperty ;
+	rdfs:subPropertyOf gw:isConnectedTo ;
+	rdfs:domain gw:Meer , gw:See ;
+	rdfs:range gw:Fluss .
 # 
 # http://www.hs-anhalt.de/gameworld/isConnectedTo
 
-:isConnectedTo a owl:ObjectProperty .
+gw:isConnectedTo a owl:ObjectProperty .
 # 
 # http://www.hs-anhalt.de/gameworld/liegtIn
 
-:liegtIn a owl:ObjectProperty ;
-	rdfs:subPropertyOf :isConnectedTo ;
-	rdfs:domain :Ort ;
-	rdfs:range :Ort .
+gw:liegtIn a owl:ObjectProperty ;
+	rdfs:subPropertyOf gw:isConnectedTo ;
+	rdfs:domain gw:Ort ;
+	rdfs:range gw:Ort .
 # 
 # http://www.hs-anhalt.de/gameworld/promoviertBei
 
-:promoviertBei a owl:ObjectProperty ;
-	rdfs:subPropertyOf :isConnectedTo ;
-	rdfs:domain :Person ;
-	rdfs:range :Doktorvater .
+gw:promoviertBei a owl:ObjectProperty ;
+	rdfs:subPropertyOf gw:isConnectedTo ;
+	rdfs:domain gw:Person ;
+	rdfs:range gw:Doktorvater .
 # 
 # http://www.hs-anhalt.de/gameworld/regiert
 
-:regiert a owl:ObjectProperty ;
-	rdfs:subPropertyOf :isConnectedTo ;
-	owl:inverseOf :wirdRegiertVon ;
-	rdfs:domain :Adliger , :Politiker ;
-	rdfs:range :Ansiedlung , :Herrschaftsgebiet .
+gw:regiert a owl:ObjectProperty ;
+	rdfs:subPropertyOf gw:isConnectedTo ;
+	owl:inverseOf gw:wirdRegiertVon ;
+	rdfs:domain gw:Adliger , gw:Politiker ;
+	rdfs:range gw:Ansiedlung , gw:Herrschaftsgebiet .
 # 
 # http://www.hs-anhalt.de/gameworld/wirdRegiertVon
 
-:wirdRegiertVon a owl:ObjectProperty ;
-	rdfs:subPropertyOf :isConnectedTo ;
-	rdfs:domain :Ansiedlung , :Herrschaftsgebiet ;
-	rdfs:range :Adliger , :Politiker .
+gw:wirdRegiertVon a owl:ObjectProperty ;
+	rdfs:subPropertyOf gw:isConnectedTo ;
+	rdfs:domain gw:Ansiedlung , gw:Herrschaftsgebiet ;
+	rdfs:range gw:Adliger , gw:Politiker .
 # 
 # http://www.hs-anhalt.de/gameworld/wohntIn
 
-:wohntIn a owl:ObjectProperty ;
-	rdfs:subPropertyOf :isConnectedTo ;
-	rdfs:domain :Person ;
-	rdfs:range :Ansiedlung , :Gebäude , :Herrschaftsgebiet .
+gw:wohntIn a owl:ObjectProperty ;
+	rdfs:subPropertyOf gw:isConnectedTo ;
+	rdfs:domain gw:Person ;
+	rdfs:range gw:Ansiedlung , gw:Gebäude , gw:Herrschaftsgebiet .
 # 
 # 
 # 
@@ -224,51 +235,51 @@ _:genid1 a owl:Restriction ;
 # 
 # http://www.hs-anhalt.de/gameworld/Bild
 
-:Bild a owl:DatatypeProperty ;
-	rdfs:domain :Class .
+gw:Bild a owl:DatatypeProperty ;
+	rdfs:domain gw:Class .
 # 
 # http://www.hs-anhalt.de/gameworld/Einwohnerzahl
 
-:Einwohnerzahl a owl:DatatypeProperty ;
-	rdfs:domain :Ansiedlung ;
+gw:Einwohnerzahl a owl:DatatypeProperty ;
+	rdfs:domain gw:Ansiedlung ;
 	rdfs:range xsd:integer ;
 	rdfs:label "Einwohnerzahl"@de , "totalPopulation"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Geburtsdatum
 
-:Geburtsdatum a owl:DatatypeProperty ;
-	rdfs:domain :Person ;
+gw:Geburtsdatum a owl:DatatypeProperty ;
+	rdfs:domain gw:Person ;
 	rdfs:range xsd:dateTime ;
 	rdfs:label "Geburtsdatum"@de , "dateOfBirth"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Höhe
 
-:Höhe a owl:DatatypeProperty ;
+gw:Höhe a owl:DatatypeProperty ;
 	rdfs:range xsd:double ;
 	rdfs:label "Höhe"@de , "height"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Krönung
 
-:Krönung a owl:DatatypeProperty ;
-	rdfs:domain :Adliger ;
+gw:Krönung a owl:DatatypeProperty ;
+	rdfs:domain gw:Adliger ;
 	rdfs:range xsd:dateTime .
 # 
 # http://www.hs-anhalt.de/gameworld/Name
 
-:Name a owl:DatatypeProperty ;
-	rdfs:domain :Adelshaus , :Ball , :Krieg , :Ort , :Person , :Schlacht , :Treffen , :Unternehmen , :Werk ;
+gw:Name a owl:DatatypeProperty ;
+	rdfs:domain gw:Adelshaus , gw:Ball , gw:Krieg , gw:Ort , gw:Person , gw:Schlacht , gw:Treffen , gw:Unternehmen , gw:Werk ;
 	rdfs:label "Name"@de , "name"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Postleitzahl
 
-:Postleitzahl a owl:DatatypeProperty ;
-	rdfs:domain :Ansiedlung ;
+gw:Postleitzahl a owl:DatatypeProperty ;
+	rdfs:domain gw:Ansiedlung ;
 	rdfs:label "Postleitzahl"@de , "postalCode"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Todesdatum
 
-:Todesdatum a owl:DatatypeProperty ;
-	rdfs:domain :Person ;
+gw:Todesdatum a owl:DatatypeProperty ;
+	rdfs:domain gw:Person ;
 	rdfs:range xsd:dateTime ;
 	rdfs:label "Todesdatum"@de , "deathdate"@en .
 # 
@@ -283,558 +294,558 @@ _:genid1 a owl:Restriction ;
 # 
 # http://www.hs-anhalt.de/gameworld/Adelshaus
 
-:Adelshaus a owl:Class ;
-	rdfs:subClassOf :Class ;
+gw:Adelshaus a owl:Class ;
+	rdfs:subClassOf gw:Class ;
 	rdfs:comment "A noble house is a clan, whose members all belong to the same noble family. The nobility is a privileged social class which is held in high esteem and furthermore has a claim to power."@en , "Ein Adelshaus ist eine Familie, deren Mitglieder alle demselben Adelsgeschlecht angehören. Der Adel (althochdeutsch adal oder edili ‚Edles Geschlecht, die Edelsten‘, lateinisch nobilitas) bildet eine privilegierte Gesellschaftsschicht mit hohem sozialen Ansehen und Herrschaftsansprüchen."@de ;
 	rdfs:label "Adelshaus"@de , "noble house"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Adliger
 
-:Adliger a owl:Class ;
-	rdfs:subClassOf :Person ;
+gw:Adliger a owl:Class ;
+	rdfs:subClassOf gw:Person ;
 	rdfs:label "Adliger"@de , "nobleman"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Almamater
 
-:Almamater a owl:Class ;
-	rdfs:subClassOf :Ort ;
+gw:Almamater a owl:Class ;
+	rdfs:subClassOf gw:Ort ;
 	rdfs:label "Universität"@de , "university"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Ansiedlung
 
-:Ansiedlung a owl:Class ;
-	rdfs:subClassOf :Ort ;
+gw:Ansiedlung a owl:Class ;
+	rdfs:subClassOf gw:Ort ;
 	rdfs:label "Ansiedlung"@de , "settlement"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Arbeitsort
 
-:Arbeitsort a owl:Class ;
-	rdfs:subClassOf :Ort ;
+gw:Arbeitsort a owl:Class ;
+	rdfs:subClassOf gw:Ort ;
 	rdfs:label "Arbeitsort"@de , "placeOfWork"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Arzt
 
-:Arzt a owl:Class ;
-	rdfs:subClassOf :Mediziner ;
+gw:Arzt a owl:Class ;
+	rdfs:subClassOf gw:Mediziner ;
 	rdfs:label "Arzt"@de , "doctor"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Bader
 
-:Bader a owl:Class ;
-	rdfs:subClassOf :Mediziner ;
+gw:Bader a owl:Class ;
+	rdfs:subClassOf gw:Mediziner ;
 	rdfs:label "Bader"@de , "barber surgeon"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Ball
 
-:Ball a owl:Class ;
-	rdfs:subClassOf :Feier ;
+gw:Ball a owl:Class ;
+	rdfs:subClassOf gw:Feier ;
 	rdfs:label "Ball"@de , "ball"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Barde
 
-:Barde a owl:Class ;
-	rdfs:subClassOf :Künstler ;
+gw:Barde a owl:Class ;
+	rdfs:subClassOf gw:Künstler ;
 	rdfs:comment "Als Barden  bezeichnet man im deutschsprachigen Raum Dichter und Sänger des keltischen Kulturkreises."@de , "Bards are poets and singers from the celtic cultural circle."@en ;
 	rdfs:label "Barde"@de , "bard"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Bauer
 
-:Bauer a owl:Class ;
-	rdfs:subClassOf :Beruf , :Person ;
+gw:Bauer a owl:Class ;
+	rdfs:subClassOf gw:Beruf , gw:Person ;
 	rdfs:comment "A farmer is a person that is engaged in agriculture, raising living organisms for food or raw materials."@en , "Der Beruf des Bauern fällt unter die Kategorie Landwirtschaft. Ein Bauer produziert tierische und/oder pflanzliche Erzeugnisse, die hauptsächlich als Nahrungsmittel genutzt werden."@de ;
 	rdfs:label "Bauer"@de , "farmer"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Berg
 
-:Berg a owl:Class ;
-	rdfs:subClassOf :Ort ;
+gw:Berg a owl:Class ;
+	rdfs:subClassOf gw:Ort ;
 	rdfs:label "Berg"@de , "mountain"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Beruf
 
-:Beruf a owl:Class ;
-	rdfs:subClassOf :Class ;
+gw:Beruf a owl:Class ;
+	rdfs:subClassOf gw:Class ;
 	rdfs:comment "A profession is a vocation founded upon specialized educational training, the purpose of which is to supply disinterested objective counsel and service to others, for a direct and definite compensation, wholly apart from expectation of other business gain."@en , "Ein Beruf ist die im Rahmen einer arbeitsteiligen Wirtschaftsordnung aufgrund besonderer Eignung und Neigung systematisch erlernte, spezialisierte, meistens mit einem Qualifikationsnachweis versehene, dauerhaft und gegen Entgelt ausgeübte Betätigung eines Menschen."@de ;
 	rdfs:label "Beruf"@de , "profession"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Bild
 
-:Bild a owl:Class ;
-	rdfs:subClassOf :Werk .
+gw:Bild a owl:Class ;
+	rdfs:subClassOf gw:Werk .
 # 
 # http://www.hs-anhalt.de/gameworld/Bildhauer
 
-:Bildhauer a owl:Class ;
-	rdfs:subClassOf :Künstler ;
+gw:Bildhauer a owl:Class ;
+	rdfs:subClassOf gw:Künstler ;
 	rdfs:comment "A carver is an artist, whose artworks are sculptures that can be modelled in varied ways."@de , "Ein Bildhauer ist ein Künstler, dessen Werke Skulpturen sind, die auf unterschiedliche Arten modelliert werden können."@de ;
 	rdfs:label "Bildhauer"@de , "carver"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Buch
 
-:Buch a owl:Class ;
-	rdfs:subClassOf :Werk ;
+gw:Buch a owl:Class ;
+	rdfs:subClassOf gw:Werk ;
 	rdfs:label "Buch"@de , "book"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Burg
 
-:Burg a owl:Class ;
-	rdfs:subClassOf :Ansiedlung , :Gebäude ;
+gw:Burg a owl:Class ;
+	rdfs:subClassOf gw:Ansiedlung , gw:Gebäude ;
 	rdfs:label "Burg"@de , "castle"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Class
 
-:Class a owl:Class .
+gw:Class a owl:Class .
 # 
 # http://www.hs-anhalt.de/gameworld/Doktor
 
-:Doktor a owl:Class ;
-	rdfs:subClassOf :Titel .
+gw:Doktor a owl:Class ;
+	rdfs:subClassOf gw:Titel .
 # 
 # http://www.hs-anhalt.de/gameworld/Doktorand
 
-:Doktorand a owl:Class ;
-	rdfs:subClassOf :Person .
+gw:Doktorand a owl:Class ;
+	rdfs:subClassOf gw:Person .
 # 
 # http://www.hs-anhalt.de/gameworld/Doktorvater
 
-:Doktorvater a owl:Class ;
-	rdfs:subClassOf :Person .
+gw:Doktorvater a owl:Class ;
+	rdfs:subClassOf gw:Person .
 # 
 # http://www.hs-anhalt.de/gameworld/Dorf
 
-:Dorf a owl:Class ;
-	rdfs:subClassOf :Ansiedlung ;
+gw:Dorf a owl:Class ;
+	rdfs:subClassOf gw:Ansiedlung ;
 	rdfs:label "Dorf"@de , "village"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Ereignis
 
-:Ereignis a owl:Class ;
-	rdfs:subClassOf :Class ;
+gw:Ereignis a owl:Class ;
+	rdfs:subClassOf gw:Class ;
 	rdfs:label "Ereignis"@de , "event"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Feier
 
-:Feier a owl:Class ;
-	rdfs:subClassOf :Ereignis ;
+gw:Feier a owl:Class ;
+	rdfs:subClassOf gw:Ereignis ;
 	rdfs:label "Feier"@de , "celebration"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Feld
 
-:Feld a owl:Class ;
-	rdfs:subClassOf :Ort ;
+gw:Feld a owl:Class ;
+	rdfs:subClassOf gw:Ort ;
 	rdfs:label "Feld"@de , "field"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Fluss
 
-:Fluss a owl:Class ;
-	rdfs:subClassOf :Ort ;
+gw:Fluss a owl:Class ;
+	rdfs:subClassOf gw:Ort ;
 	rdfs:label "Fluss"@de , "river"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Fürst
 
-:Fürst a owl:Class ;
-	rdfs:subClassOf :Adliger ;
+gw:Fürst a owl:Class ;
+	rdfs:subClassOf gw:Adliger ;
 	rdfs:label "Fürst"@de , "ruler"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Fürstentum
 
-:Fürstentum a owl:Class ;
-	rdfs:subClassOf :Herrschaftsgebiet ;
+gw:Fürstentum a owl:Class ;
+	rdfs:subClassOf gw:Herrschaftsgebiet ;
 	rdfs:label "Fürstentum"@de , "principality"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Fürstin
 
-:Fürstin a owl:Class ;
-	rdfs:subClassOf :Adliger ;
+gw:Fürstin a owl:Class ;
+	rdfs:subClassOf gw:Adliger ;
 	rdfs:label "Fürstin"@de , "ruler"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Geburt
 
-:Geburt a owl:Class ;
-	rdfs:subClassOf :Ereignis ;
+gw:Geburt a owl:Class ;
+	rdfs:subClassOf gw:Ereignis ;
 	rdfs:label "Geburt"@de , "birth"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Geburtsort
 
-:Geburtsort a owl:Class ;
-	rdfs:subClassOf :Ort ;
+gw:Geburtsort a owl:Class ;
+	rdfs:subClassOf gw:Ort ;
 	rdfs:label "Geburtsort"@de , "birthPlace"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Gebäude
 
-:Gebäude a owl:Class ;
-	rdfs:subClassOf :Ort ;
+gw:Gebäude a owl:Class ;
+	rdfs:subClassOf gw:Ort ;
 	rdfs:label "Gebäude"@de , "building"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Geistlicher
 
-:Geistlicher a owl:Class ;
-	rdfs:subClassOf :Person ;
+gw:Geistlicher a owl:Class ;
+	rdfs:subClassOf gw:Person ;
 	rdfs:label "Geistlicher"@de , "cleric"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Geschwister
 
-:Geschwister a owl:Class ;
-	rdfs:subClassOf :Person ;
+gw:Geschwister a owl:Class ;
+	rdfs:subClassOf gw:Person ;
 	rdfs:label "Geschwister"@de , "sibling"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Graf
 
-:Graf a owl:Class ;
-	rdfs:subClassOf :Adliger ;
+gw:Graf a owl:Class ;
+	rdfs:subClassOf gw:Adliger ;
 	rdfs:label "Graf"@de , "count"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Gräfin
 
-:Gräfin a owl:Class ;
-	rdfs:subClassOf :Adliger ;
+gw:Gräfin a owl:Class ;
+	rdfs:subClassOf gw:Adliger ;
 	rdfs:label "Gräfin"@de , "countess"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Gründung
 
-:Gründung a owl:Class ;
-	rdfs:subClassOf :Ereignis ;
+gw:Gründung a owl:Class ;
+	rdfs:subClassOf gw:Ereignis ;
 	rdfs:label "Gründung"@de , "foundation"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Haus
 
-:Haus a owl:Class ;
-	rdfs:subClassOf :Gebäude ;
+gw:Haus a owl:Class ;
+	rdfs:subClassOf gw:Gebäude ;
 	rdfs:label "Haus"@de , "house"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Heilkundiger
 
-:Heilkundiger a owl:Class ;
-	rdfs:subClassOf :Mediziner ;
+gw:Heilkundiger a owl:Class ;
+	rdfs:subClassOf gw:Mediziner ;
 	rdfs:label "Heilkundiger"@de , "healer"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Herrschaftsgebiet
 
-:Herrschaftsgebiet a owl:Class ;
-	rdfs:subClassOf :Ort ;
+gw:Herrschaftsgebiet a owl:Class ;
+	rdfs:subClassOf gw:Ort ;
 	rdfs:label "Herrschaftsgebiet"@de , "barony"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Hochzeit
 
-:Hochzeit a owl:Class ;
-	rdfs:subClassOf :Feier ;
+gw:Hochzeit a owl:Class ;
+	rdfs:subClassOf gw:Feier ;
 	rdfs:label "Hochzeit"@de , "marriage"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Händler
 
-:Händler a owl:Class ;
-	rdfs:subClassOf :Beruf , :Person ;
+gw:Händler a owl:Class ;
+	rdfs:subClassOf gw:Beruf , gw:Person ;
 	rdfs:comment "A merchant is a person, which acquires goods and resells them profitably."@en , "Personen, die Waren ankaufen und sie gewinnbringend wieder verkaufen, werden als Händler bezeichnet."@de ;
 	rdfs:label "Händler"@de , "merchant"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Hütte
 
-:Hütte a owl:Class ;
-	rdfs:subClassOf :Gebäude ;
+gw:Hütte a owl:Class ;
+	rdfs:subClassOf gw:Gebäude ;
 	rdfs:label "Hütte"@de , "cottage"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Kaiser
 
-:Kaiser a owl:Class ;
-	rdfs:subClassOf :Adliger ;
+gw:Kaiser a owl:Class ;
+	rdfs:subClassOf gw:Adliger ;
 	rdfs:label "Kaiser"@de , "emperor"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Kaiserin
 
-:Kaiserin a owl:Class ;
-	rdfs:subClassOf :Adliger ;
+gw:Kaiserin a owl:Class ;
+	rdfs:subClassOf gw:Adliger ;
 	rdfs:label "Kaiserin"@de , "empress"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Kaiserreich
 
-:Kaiserreich a owl:Class ;
-	rdfs:subClassOf :Herrschaftsgebiet ;
+gw:Kaiserreich a owl:Class ;
+	rdfs:subClassOf gw:Herrschaftsgebiet ;
 	rdfs:label "Kaiserreich"@de , "empire"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Kind
 
-:Kind a owl:Class ;
-	rdfs:subClassOf :Person ;
+gw:Kind a owl:Class ;
+	rdfs:subClassOf gw:Person ;
 	rdfs:label "Kind"@de , "child"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Kirche
 
-:Kirche a owl:Class ;
-	rdfs:subClassOf :Gebäude ;
+gw:Kirche a owl:Class ;
+	rdfs:subClassOf gw:Gebäude ;
 	rdfs:label "Kirche"@de , "church"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Kloster
 
-:Kloster a owl:Class ;
-	rdfs:subClassOf :Ansiedlung , :Gebäude ;
+gw:Kloster a owl:Class ;
+	rdfs:subClassOf gw:Ansiedlung , gw:Gebäude ;
 	rdfs:label "Kloster"@de , "cloister"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Komposition
 
-:Komposition a owl:Class ;
-	rdfs:subClassOf :Werk ;
+gw:Komposition a owl:Class ;
+	rdfs:subClassOf gw:Werk ;
 	rdfs:label "Komposition"@de , "composition"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Krieg
 
-:Krieg a owl:Class ;
-	rdfs:subClassOf :Ereignis ;
+gw:Krieg a owl:Class ;
+	rdfs:subClassOf gw:Ereignis ;
 	rdfs:label "Krieg"@de , "war"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Kräuterkundiger
 
-:Kräuterkundiger a owl:Class ;
-	rdfs:subClassOf :Mediziner ;
+gw:Kräuterkundiger a owl:Class ;
+	rdfs:subClassOf gw:Mediziner ;
 	rdfs:label "Kräuterkundiger"@de , "herbalist"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Krönung
 
-:Krönung a owl:Class ;
-	rdfs:subClassOf :Feier .
+gw:Krönung a owl:Class ;
+	rdfs:subClassOf gw:Feier .
 # 
 # http://www.hs-anhalt.de/gameworld/König
 
-:König a owl:Class ;
-	rdfs:subClassOf :Adliger ;
+gw:König a owl:Class ;
+	rdfs:subClassOf gw:Adliger ;
 	rdfs:label "König"@de , "king"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Königin
 
-:Königin a owl:Class ;
-	rdfs:subClassOf :Adliger ;
+gw:Königin a owl:Class ;
+	rdfs:subClassOf gw:Adliger ;
 	rdfs:label "Königin"@de , "queen"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Königreich
 
-:Königreich a owl:Class ;
-	rdfs:subClassOf :Herrschaftsgebiet ;
+gw:Königreich a owl:Class ;
+	rdfs:subClassOf gw:Herrschaftsgebiet ;
 	rdfs:label "Königreich"@de , "kingdom"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Künstler
 
-:Künstler a owl:Class ;
-	rdfs:subClassOf :Beruf , :Person ;
+gw:Künstler a owl:Class ;
+	rdfs:subClassOf gw:Beruf , gw:Person ;
 	rdfs:comment "Als Künstler werden meist Personen bezeichnet, die in der Bildenden Kunst, der Angewandten Kunst, der Darstellenden Kunst sowie der Literatur und der Musik kreativ tätig sind und die Kunstwerke schaffen."@de , "An artist is a person engaged in one or more of any of a broad spectrum of activities related to creating art, practicing the arts or demonstrating an art."@en ;
 	rdfs:label "Künstler"@de , "artist"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Länderei
 
-:Länderei a owl:Class ;
-	rdfs:subClassOf :Ansiedlung ;
+gw:Länderei a owl:Class ;
+	rdfs:subClassOf gw:Ansiedlung ;
 	rdfs:label "Länderei"@de , "seigneury"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Maler
 
-:Maler a owl:Class ;
-	rdfs:subClassOf :Künstler ;
+gw:Maler a owl:Class ;
+	rdfs:subClassOf gw:Künstler ;
 	rdfs:comment "A painter is an artist that is endemic to the visual arts. He creates artworks by putting wet colours on an underground made of paper, glass or other materials."@en , "Ein Maler zählt zu den Künstlern der Bildenen Kunst. Dabei entstehen gemalte Kunstwerke durch das Aufbringen von feuchten Farben mittels Pinsel, Spachtel oder anderer Werkzeuge auf einen Malgrund."@de ;
 	rdfs:label "Maler"@de , "painter"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Mediziner
 
-:Mediziner a owl:Class ;
-	rdfs:subClassOf :Beruf , :Person ;
+gw:Mediziner a owl:Class ;
+	rdfs:subClassOf gw:Beruf , gw:Person ;
 	rdfs:label "Mediziner"@de , "medical practicioner"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Meer
 
-:Meer a owl:Class ;
-	rdfs:subClassOf :Ort ;
+gw:Meer a owl:Class ;
+	rdfs:subClassOf gw:Ort ;
 	rdfs:label "Meer"@de , "sea"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Militär
 
-:Militär a owl:Class ;
-	rdfs:subClassOf :Beruf , :Person ;
+gw:Militär a owl:Class ;
+	rdfs:subClassOf gw:Beruf , gw:Person ;
 	rdfs:label "Militär"@de , "military officer"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Mutter
 
-:Mutter a owl:Class ;
-	rdfs:subClassOf :Person ;
+gw:Mutter a owl:Class ;
+	rdfs:subClassOf gw:Person ;
 	rdfs:label "Mutter"@de , "mother"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Mönch
 
-:Mönch a owl:Class ;
-	rdfs:subClassOf :Geistlicher ;
+gw:Mönch a owl:Class ;
+	rdfs:subClassOf gw:Geistlicher ;
 	rdfs:label "Mönch"@de , "monk"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Nachfolger
 
-:Nachfolger a owl:Class ;
-	rdfs:subClassOf :Person .
+gw:Nachfolger a owl:Class ;
+	rdfs:subClassOf gw:Person .
 # 
 # http://www.hs-anhalt.de/gameworld/Nationalität
 
-:Nationalität a owl:Class ;
-	rdfs:subClassOf :Class ;
+gw:Nationalität a owl:Class ;
+	rdfs:subClassOf gw:Class ;
 	rdfs:label "Nationalität"@de , "nationality"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Nonne
 
-:Nonne a owl:Class ;
-	rdfs:subClassOf :Geistlicher ;
+gw:Nonne a owl:Class ;
+	rdfs:subClassOf gw:Geistlicher ;
 	rdfs:label "Nonne"@de , "nun"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Ort
 
-:Ort a owl:Class ;
-	rdfs:subClassOf :Class ;
+gw:Ort a owl:Class ;
+	rdfs:subClassOf gw:Class ;
 	rdfs:comment "Der Schauplatz eines Geschehens"@de , "The setting of an event."@en ;
 	rdfs:label "Ort"@de , "place"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Person
 
-:Person a owl:Class ;
-	rdfs:subClassOf :Class ;
+gw:Person a owl:Class ;
+	rdfs:subClassOf gw:Class ;
 	rdfs:label "Person"@de , "person"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Platz
 
-:Platz a owl:Class ;
-	rdfs:subClassOf :Ort ;
+gw:Platz a owl:Class ;
+	rdfs:subClassOf gw:Ort ;
 	rdfs:label "Platz"@de , "square"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Politiker
 
-:Politiker a owl:Class ;
-	rdfs:subClassOf :Beruf , :Person ;
+gw:Politiker a owl:Class ;
+	rdfs:subClassOf gw:Beruf , gw:Person ;
 	rdfs:label "Politiker"@de , "politician"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Priester
 
-:Priester a owl:Class ;
-	rdfs:subClassOf :Geistlicher ;
+gw:Priester a owl:Class ;
+	rdfs:subClassOf gw:Geistlicher ;
 	rdfs:label "Priester"@de , "priest"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Prinz
 
-:Prinz a owl:Class ;
-	rdfs:subClassOf :Adliger ;
+gw:Prinz a owl:Class ;
+	rdfs:subClassOf gw:Adliger ;
 	rdfs:label "Prinz"@de , "prince"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Prinzessin
 
-:Prinzessin a owl:Class ;
-	rdfs:subClassOf :Adliger ;
+gw:Prinzessin a owl:Class ;
+	rdfs:subClassOf gw:Adliger ;
 	rdfs:label "Prinzessin"@de , "princess"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Professor
 
-:Professor a owl:Class ;
-	rdfs:subClassOf :Beruf , :Titel .
+gw:Professor a owl:Class ;
+	rdfs:subClassOf gw:Beruf , gw:Titel .
 # 
 # http://www.hs-anhalt.de/gameworld/Region
 
-:Region a owl:Class ;
-	rdfs:subClassOf :Ort ;
+gw:Region a owl:Class ;
+	rdfs:subClassOf gw:Ort ;
 	rdfs:label "Region"@de , "region"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Religion
 
-:Religion a owl:Class ;
-	rdfs:subClassOf :Class .
+gw:Religion a owl:Class ;
+	rdfs:subClassOf gw:Class .
 # 
 # http://www.hs-anhalt.de/gameworld/Ritter
 
-:Ritter a owl:Class ;
-	rdfs:subClassOf :Adliger , :Militär ;
+gw:Ritter a owl:Class ;
+	rdfs:subClassOf gw:Adliger , gw:Militär ;
 	rdfs:label "Ritter"@de , "knight"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Schlacht
 
-:Schlacht a owl:Class ;
-	rdfs:subClassOf :Ereignis ;
+gw:Schlacht a owl:Class ;
+	rdfs:subClassOf gw:Ereignis ;
 	rdfs:label "Schlacht"@de , "battle"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Schloss
 
-:Schloss a owl:Class ;
-	rdfs:subClassOf :Ansiedlung , :Gebäude ;
+gw:Schloss a owl:Class ;
+	rdfs:subClassOf gw:Ansiedlung , gw:Gebäude ;
 	rdfs:label "Schloss"@de , "palace"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Schriftsteller
 
-:Schriftsteller a owl:Class ;
-	rdfs:subClassOf :Künstler ;
+gw:Schriftsteller a owl:Class ;
+	rdfs:subClassOf gw:Künstler ;
 	rdfs:comment "Schriftsteller sind Urheber und Verfasser literarischer Texte und zählen damit zu den Autoren."@de , "Writers are originators and authors of literarily texts and therefor belong to the authors."@en ;
 	rdfs:label "Schriftsteller"@de , "writer"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/See
 
-:See a owl:Class ;
-	rdfs:subClassOf :Ort ;
+gw:See a owl:Class ;
+	rdfs:subClassOf gw:Ort ;
 	rdfs:label "See"@de , "lake"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Sklave
 
-:Sklave a owl:Class ;
-	rdfs:subClassOf :Person ;
+gw:Sklave a owl:Class ;
+	rdfs:subClassOf gw:Person ;
 	rdfs:label "Sklave"@de , "slave"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Skulptur
 
-:Skulptur a owl:Class ;
-	rdfs:subClassOf :Werk ;
+gw:Skulptur a owl:Class ;
+	rdfs:subClassOf gw:Werk ;
 	rdfs:label "Skulptur"@de , "sculpture"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Soldat
 
-:Soldat a owl:Class ;
-	rdfs:subClassOf :Militär ;
+gw:Soldat a owl:Class ;
+	rdfs:subClassOf gw:Militär ;
 	rdfs:label "Soldat"@de , "soldier"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Stadt
 
-:Stadt a owl:Class ;
-	rdfs:subClassOf :Ansiedlung ;
+gw:Stadt a owl:Class ;
+	rdfs:subClassOf gw:Ansiedlung ;
 	rdfs:label "Stadt"@de , "city"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Titel
 
-:Titel a owl:Class ;
-	rdfs:subClassOf :Class .
+gw:Titel a owl:Class ;
+	rdfs:subClassOf gw:Class .
 # 
 # http://www.hs-anhalt.de/gameworld/Tod
 
-:Tod a owl:Class ;
-	rdfs:subClassOf :Ereignis ;
+gw:Tod a owl:Class ;
+	rdfs:subClassOf gw:Ereignis ;
 	rdfs:label "Tod"@de , "death"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Todesort
 
-:Todesort a owl:Class ;
-	rdfs:subClassOf :Ort ;
+gw:Todesort a owl:Class ;
+	rdfs:subClassOf gw:Ort ;
 	rdfs:label "Todesort"@de , "deathPlace"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Treffen
 
-:Treffen a owl:Class ;
-	rdfs:subClassOf :Ereignis ;
+gw:Treffen a owl:Class ;
+	rdfs:subClassOf gw:Ereignis ;
 	rdfs:label "Treffen"@de , "gathering"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Unternehmen
 
-:Unternehmen a owl:Class ;
-	rdfs:subClassOf :Class ;
+gw:Unternehmen a owl:Class ;
+	rdfs:subClassOf gw:Class ;
 	rdfs:label "Unternehmen"@de , "company"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Vater
 
-:Vater a owl:Class ;
-	rdfs:subClassOf :Person ;
+gw:Vater a owl:Class ;
+	rdfs:subClassOf gw:Person ;
 	rdfs:label "Vater"@de , "father"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Vorgägner
 
-:Vorgägner a owl:Class ;
-	rdfs:subClassOf :Person .
+gw:Vorgägner a owl:Class ;
+	rdfs:subClassOf gw:Person .
 # 
 # http://www.hs-anhalt.de/gameworld/Werk
 
-:Werk a owl:Class ;
-	rdfs:subClassOf :Class ;
+gw:Werk a owl:Class ;
+	rdfs:subClassOf gw:Class ;
 	rdfs:label "Werk"@de , "opus"@en .
 # 
 # 
@@ -847,9 +858,9 @@ _:genid1 a owl:Restriction ;
 # 
 # 
 
-:Bild rdfs:label "thumbnail"@en , "Bild"@de .
+gw:Bild rdfs:label "Bild"@de , "image"@en .
 # 
 
-:Krönung rdfs:label "Krönung"@de , "coronation"@en .
+gw:Krönung rdfs:label "Krönung"@de , "coronation"@en .
 # 
 # Generated by the OWL API (version 4.2.1.20160306-0033) https://github.com/owlcs/owlapi
