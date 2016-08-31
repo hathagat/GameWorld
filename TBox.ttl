@@ -17,9 +17,9 @@
 # #################################################################
 # 
 # 
-# http://www.hs-anhalt.de/gameworld/bekanntFür
+# http://www.hs-anhalt.de/gameworld/bekanntFuer
 
-gw:bekanntFür a owl:ObjectProperty ;
+gw:bekanntFuer a owl:ObjectProperty ;
 	rdfs:subPropertyOf gw:isConnectedTo ;
 	rdfs:domain gw:Adelshaus , gw:Ort , gw:Person , gw:Unternehmen .
 # 
@@ -27,9 +27,9 @@ gw:bekanntFür a owl:ObjectProperty ;
 
 gw:besitzt a owl:ObjectProperty ;
 	rdfs:subPropertyOf gw:isConnectedTo ;
-	owl:inverseOf gw:gehört ;
+	owl:inverseOf gw:gehoert ;
 	rdfs:domain gw:Adelshaus , gw:Person , gw:Unternehmen ;
-	rdfs:range gw:Ansiedlung , gw:Feld , gw:Gebäude , gw:Sklave , gw:Unternehmen , gw:Werk .
+	rdfs:range gw:Ansiedlung , gw:Feld , gw:Gebaeude , gw:Sklave , gw:Unternehmen , gw:Werk .
 # 
 # http://www.hs-anhalt.de/gameworld/dientUnter
 
@@ -47,6 +47,13 @@ gw:fließtInMeer a owl:ObjectProperty ;
 	rdfs:domain gw:Fluss ;
 	rdfs:range gw:Meer .
 # 
+# http://www.hs-anhalt.de/gameworld/gehoert
+
+gw:gehoert a owl:ObjectProperty ;
+	rdfs:subPropertyOf gw:isConnectedTo ;
+	rdfs:domain gw:Ansiedlung , gw:Feld , gw:Gebaeude , gw:Sklave , gw:Unternehmen , gw:Werk ;
+	rdfs:range gw:Adelshaus , gw:Person , gw:Unternehmen .
+# 
 # http://www.hs-anhalt.de/gameworld/gehoertAn
 
 gw:gehoertAn a owl:ObjectProperty ;
@@ -54,13 +61,6 @@ gw:gehoertAn a owl:ObjectProperty ;
 	owl:inverseOf gw:hatMitglied ;
 	rdfs:domain gw:Adliger ;
 	rdfs:range gw:Adelshaus .
-# 
-# http://www.hs-anhalt.de/gameworld/gehört
-
-gw:gehört a owl:ObjectProperty ;
-	rdfs:subPropertyOf gw:isConnectedTo ;
-	rdfs:domain gw:Ansiedlung , gw:Feld , gw:Gebäude , gw:Sklave , gw:Unternehmen , gw:Werk ;
-	rdfs:range gw:Adelshaus , gw:Person , gw:Unternehmen .
 # 
 # http://www.hs-anhalt.de/gameworld/hasImage
 
@@ -94,14 +94,14 @@ gw:hatDoktorand a owl:ObjectProperty ;
 gw:hatEinwohner a owl:ObjectProperty ;
 	rdfs:subPropertyOf gw:isConnectedTo ;
 	owl:inverseOf gw:wohntIn ;
-	rdfs:domain gw:Ansiedlung , gw:Gebäude , gw:Herrschaftsgebiet , gw:Region ;
+	rdfs:domain gw:Ansiedlung , gw:Gebaeude , gw:Herrschaftsgebiet , gw:Region ;
 	rdfs:range gw:Person .
 # 
 # http://www.hs-anhalt.de/gameworld/hatErschaffen
 
 gw:hatErschaffen a owl:ObjectProperty ;
 	rdfs:subPropertyOf gw:isConnectedTo ;
-	rdfs:domain gw:Künstler ;
+	rdfs:domain gw:Kuenstler ;
 	rdfs:range gw:Werk .
 # 
 # http://www.hs-anhalt.de/gameworld/hatKind
@@ -130,16 +130,16 @@ gw:hatMutter a owl:ObjectProperty ;
 
 gw:hatNachfolger a owl:ObjectProperty ;
 	rdfs:subPropertyOf gw:isConnectedTo ;
-	owl:inverseOf gw:hatVorgänger ;
+	owl:inverseOf gw:hatVorgaenger ;
 	rdfs:domain gw:Person ;
 	rdfs:range gw:Person .
 # 
-# http://www.hs-anhalt.de/gameworld/hatNationalität
+# http://www.hs-anhalt.de/gameworld/hatNationalitaet
 
-gw:hatNationalität a owl:ObjectProperty ;
+gw:hatNationalitaet a owl:ObjectProperty ;
 	rdfs:subPropertyOf gw:isConnectedTo ;
 	rdfs:domain gw:Person ;
-	rdfs:range gw:Nationalität .
+	rdfs:range gw:Herrschaftsgebiet .
 # 
 # http://www.hs-anhalt.de/gameworld/hatReligion
 
@@ -170,9 +170,9 @@ gw:hatVater a owl:ObjectProperty ;
 	rdfs:range gw:Vater ;
 	rdfs:label "hatVater"@de .
 # 
-# http://www.hs-anhalt.de/gameworld/hatVorgänger
+# http://www.hs-anhalt.de/gameworld/hatVorgaenger
 
-gw:hatVorgänger a owl:ObjectProperty ;
+gw:hatVorgaenger a owl:ObjectProperty ;
 	rdfs:subPropertyOf gw:isConnectedTo ;
 	rdfs:domain gw:Person ;
 	rdfs:range gw:Person .
@@ -222,7 +222,7 @@ gw:wirdRegiertVon a owl:ObjectProperty ;
 gw:wohntIn a owl:ObjectProperty ;
 	rdfs:subPropertyOf gw:isConnectedTo ;
 	rdfs:domain gw:Person ;
-	rdfs:range gw:Ansiedlung , gw:Gebäude , gw:Herrschaftsgebiet .
+	rdfs:range gw:Ansiedlung , gw:Gebaeude , gw:Herrschaftsgebiet .
 # 
 # 
 # 
@@ -252,15 +252,15 @@ gw:Geburtsdatum a owl:DatatypeProperty ;
 	rdfs:range xsd:dateTime ;
 	rdfs:label "Geburtsdatum"@de , "dateOfBirth"@en .
 # 
-# http://www.hs-anhalt.de/gameworld/Höhe
+# http://www.hs-anhalt.de/gameworld/Hoehe
 
-gw:Höhe a owl:DatatypeProperty ;
+gw:Hoehe a owl:DatatypeProperty ;
 	rdfs:range xsd:double ;
 	rdfs:label "Höhe"@de , "height"@en .
 # 
-# http://www.hs-anhalt.de/gameworld/Krönung
+# http://www.hs-anhalt.de/gameworld/Kroenung
 
-gw:Krönung a owl:DatatypeProperty ;
+gw:Kroenung a owl:DatatypeProperty ;
 	rdfs:domain gw:Adliger ;
 	rdfs:range xsd:dateTime .
 # 
@@ -305,12 +305,6 @@ gw:Adliger a owl:Class ;
 	rdfs:subClassOf gw:Person ;
 	rdfs:label "Adliger"@de , "nobleman"@en .
 # 
-# http://www.hs-anhalt.de/gameworld/Almamater
-
-gw:Almamater a owl:Class ;
-	rdfs:subClassOf gw:Ort ;
-	rdfs:label "Universität"@de , "university"@en .
-# 
 # http://www.hs-anhalt.de/gameworld/Ansiedlung
 
 gw:Ansiedlung a owl:Class ;
@@ -344,7 +338,7 @@ gw:Ball a owl:Class ;
 # http://www.hs-anhalt.de/gameworld/Barde
 
 gw:Barde a owl:Class ;
-	rdfs:subClassOf gw:Künstler ;
+	rdfs:subClassOf gw:Kuenstler ;
 	rdfs:comment "Als Barden  bezeichnet man im deutschsprachigen Raum Dichter und Sänger des keltischen Kulturkreises."@de , "Bards are poets and singers from the celtic cultural circle."@en ;
 	rdfs:label "Barde"@de , "bard"@en .
 # 
@@ -376,7 +370,7 @@ gw:Bild a owl:Class ;
 # http://www.hs-anhalt.de/gameworld/Bildhauer
 
 gw:Bildhauer a owl:Class ;
-	rdfs:subClassOf gw:Künstler ;
+	rdfs:subClassOf gw:Kuenstler ;
 	rdfs:comment "A carver is an artist, whose artworks are sculptures that can be modelled in varied ways."@de , "Ein Bildhauer ist ein Künstler, dessen Werke Skulpturen sind, die auf unterschiedliche Arten modelliert werden können."@de ;
 	rdfs:label "Bildhauer"@de , "carver"@en .
 # 
@@ -389,7 +383,7 @@ gw:Buch a owl:Class ;
 # http://www.hs-anhalt.de/gameworld/Burg
 
 gw:Burg a owl:Class ;
-	rdfs:subClassOf gw:Ansiedlung , gw:Gebäude ;
+	rdfs:subClassOf gw:Ansiedlung , gw:Gebaeude ;
 	rdfs:label "Burg"@de , "castle"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Class
@@ -441,23 +435,29 @@ gw:Fluss a owl:Class ;
 	rdfs:subClassOf gw:Ort ;
 	rdfs:label "Fluss"@de , "river"@en .
 # 
-# http://www.hs-anhalt.de/gameworld/Fürst
+# http://www.hs-anhalt.de/gameworld/Fuerst
 
-gw:Fürst a owl:Class ;
+gw:Fuerst a owl:Class ;
 	rdfs:subClassOf gw:Adliger ;
 	rdfs:label "Fürst"@de , "ruler"@en .
 # 
-# http://www.hs-anhalt.de/gameworld/Fürstentum
+# http://www.hs-anhalt.de/gameworld/Fuerstentum
 
-gw:Fürstentum a owl:Class ;
+gw:Fuerstentum a owl:Class ;
 	rdfs:subClassOf gw:Herrschaftsgebiet ;
 	rdfs:label "Fürstentum"@de , "principality"@en .
 # 
-# http://www.hs-anhalt.de/gameworld/Fürstin
+# http://www.hs-anhalt.de/gameworld/Fuerstin
 
-gw:Fürstin a owl:Class ;
+gw:Fuerstin a owl:Class ;
 	rdfs:subClassOf gw:Adliger ;
 	rdfs:label "Fürstin"@de , "ruler"@en .
+# 
+# http://www.hs-anhalt.de/gameworld/Gebaeude
+
+gw:Gebaeude a owl:Class ;
+	rdfs:subClassOf gw:Ort ;
+	rdfs:label "Gebäude"@de , "building"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Geburt
 
@@ -471,12 +471,6 @@ gw:Geburtsort a owl:Class ;
 	rdfs:subClassOf gw:Ort ;
 	rdfs:label "Geburtsort"@de , "birthPlace"@en .
 # 
-# http://www.hs-anhalt.de/gameworld/Gebäude
-
-gw:Gebäude a owl:Class ;
-	rdfs:subClassOf gw:Ort ;
-	rdfs:label "Gebäude"@de , "building"@en .
-# 
 # http://www.hs-anhalt.de/gameworld/Geistlicher
 
 gw:Geistlicher a owl:Class ;
@@ -489,28 +483,28 @@ gw:Geschwister a owl:Class ;
 	rdfs:subClassOf gw:Person ;
 	rdfs:label "Geschwister"@de , "sibling"@en .
 # 
+# http://www.hs-anhalt.de/gameworld/Graefin
+
+gw:Graefin a owl:Class ;
+	rdfs:subClassOf gw:Adliger ;
+	rdfs:label "Gräfin"@de , "countess"@en .
+# 
 # http://www.hs-anhalt.de/gameworld/Graf
 
 gw:Graf a owl:Class ;
 	rdfs:subClassOf gw:Adliger ;
 	rdfs:label "Graf"@de , "count"@en .
 # 
-# http://www.hs-anhalt.de/gameworld/Gräfin
+# http://www.hs-anhalt.de/gameworld/Gruendung
 
-gw:Gräfin a owl:Class ;
-	rdfs:subClassOf gw:Adliger ;
-	rdfs:label "Gräfin"@de , "countess"@en .
-# 
-# http://www.hs-anhalt.de/gameworld/Gründung
-
-gw:Gründung a owl:Class ;
+gw:Gruendung a owl:Class ;
 	rdfs:subClassOf gw:Ereignis ;
 	rdfs:label "Gründung"@de , "foundation"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Haus
 
 gw:Haus a owl:Class ;
-	rdfs:subClassOf gw:Gebäude ;
+	rdfs:subClassOf gw:Gebaeude ;
 	rdfs:label "Haus"@de , "house"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Heilkundiger
@@ -531,18 +525,18 @@ gw:Hochzeit a owl:Class ;
 	rdfs:subClassOf gw:Feier ;
 	rdfs:label "Hochzeit"@de , "marriage"@en .
 # 
+# http://www.hs-anhalt.de/gameworld/Huette
+
+gw:Huette a owl:Class ;
+	rdfs:subClassOf gw:Gebaeude ;
+	rdfs:label "Hütte"@de , "cottage"@en .
+# 
 # http://www.hs-anhalt.de/gameworld/Händler
 
 gw:Händler a owl:Class ;
 	rdfs:subClassOf gw:Beruf , gw:Person ;
 	rdfs:comment "A merchant is a person, which acquires goods and resells them profitably."@en , "Personen, die Waren ankaufen und sie gewinnbringend wieder verkaufen, werden als Händler bezeichnet."@de ;
 	rdfs:label "Händler"@de , "merchant"@en .
-# 
-# http://www.hs-anhalt.de/gameworld/Hütte
-
-gw:Hütte a owl:Class ;
-	rdfs:subClassOf gw:Gebäude ;
-	rdfs:label "Hütte"@de , "cottage"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Kaiser
 
@@ -571,14 +565,32 @@ gw:Kind a owl:Class ;
 # http://www.hs-anhalt.de/gameworld/Kirche
 
 gw:Kirche a owl:Class ;
-	rdfs:subClassOf gw:Gebäude ;
+	rdfs:subClassOf gw:Gebaeude ;
 	rdfs:label "Kirche"@de , "church"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Kloster
 
 gw:Kloster a owl:Class ;
-	rdfs:subClassOf gw:Ansiedlung , gw:Gebäude ;
+	rdfs:subClassOf gw:Ansiedlung , gw:Gebaeude ;
 	rdfs:label "Kloster"@de , "cloister"@en .
+# 
+# http://www.hs-anhalt.de/gameworld/Koenig
+
+gw:Koenig a owl:Class ;
+	rdfs:subClassOf gw:Adliger ;
+	rdfs:label "König"@de , "king"@en .
+# 
+# http://www.hs-anhalt.de/gameworld/Koenigin
+
+gw:Koenigin a owl:Class ;
+	rdfs:subClassOf gw:Adliger ;
+	rdfs:label "Königin"@de , "queen"@en .
+# 
+# http://www.hs-anhalt.de/gameworld/Koenigreich
+
+gw:Koenigreich a owl:Class ;
+	rdfs:subClassOf gw:Herrschaftsgebiet ;
+	rdfs:label "Königreich"@de , "kingdom"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Komposition
 
@@ -586,44 +598,26 @@ gw:Komposition a owl:Class ;
 	rdfs:subClassOf gw:Werk ;
 	rdfs:label "Komposition"@de , "composition"@en .
 # 
+# http://www.hs-anhalt.de/gameworld/Kraeuterkundiger
+
+gw:Kraeuterkundiger a owl:Class ;
+	rdfs:subClassOf gw:Mediziner ;
+	rdfs:label "Kräuterkundiger"@de , "herbalist"@en .
+# 
 # http://www.hs-anhalt.de/gameworld/Krieg
 
 gw:Krieg a owl:Class ;
 	rdfs:subClassOf gw:Ereignis ;
 	rdfs:label "Krieg"@de , "war"@en .
 # 
-# http://www.hs-anhalt.de/gameworld/Kräuterkundiger
+# http://www.hs-anhalt.de/gameworld/Kroenung
 
-gw:Kräuterkundiger a owl:Class ;
-	rdfs:subClassOf gw:Mediziner ;
-	rdfs:label "Kräuterkundiger"@de , "herbalist"@en .
-# 
-# http://www.hs-anhalt.de/gameworld/Krönung
-
-gw:Krönung a owl:Class ;
+gw:Kroenung a owl:Class ;
 	rdfs:subClassOf gw:Feier .
 # 
-# http://www.hs-anhalt.de/gameworld/König
+# http://www.hs-anhalt.de/gameworld/Kuenstler
 
-gw:König a owl:Class ;
-	rdfs:subClassOf gw:Adliger ;
-	rdfs:label "König"@de , "king"@en .
-# 
-# http://www.hs-anhalt.de/gameworld/Königin
-
-gw:Königin a owl:Class ;
-	rdfs:subClassOf gw:Adliger ;
-	rdfs:label "Königin"@de , "queen"@en .
-# 
-# http://www.hs-anhalt.de/gameworld/Königreich
-
-gw:Königreich a owl:Class ;
-	rdfs:subClassOf gw:Herrschaftsgebiet ;
-	rdfs:label "Königreich"@de , "kingdom"@en .
-# 
-# http://www.hs-anhalt.de/gameworld/Künstler
-
-gw:Künstler a owl:Class ;
+gw:Kuenstler a owl:Class ;
 	rdfs:subClassOf gw:Beruf , gw:Person ;
 	rdfs:comment "Als Künstler werden meist Personen bezeichnet, die in der Bildenden Kunst, der Angewandten Kunst, der Darstellenden Kunst sowie der Literatur und der Musik kreativ tätig sind und die Kunstwerke schaffen."@de , "An artist is a person engaged in one or more of any of a broad spectrum of activities related to creating art, practicing the arts or demonstrating an art."@en ;
 	rdfs:label "Künstler"@de , "artist"@en .
@@ -637,7 +631,7 @@ gw:Länderei a owl:Class ;
 # http://www.hs-anhalt.de/gameworld/Maler
 
 gw:Maler a owl:Class ;
-	rdfs:subClassOf gw:Künstler ;
+	rdfs:subClassOf gw:Kuenstler ;
 	rdfs:comment "A painter is an artist that is endemic to the visual arts. He creates artworks by putting wet colours on an underground made of paper, glass or other materials."@en , "Ein Maler zählt zu den Künstlern der Bildenen Kunst. Dabei entstehen gemalte Kunstwerke durch das Aufbringen von feuchten Farben mittels Pinsel, Spachtel oder anderer Werkzeuge auf einen Malgrund."@de ;
 	rdfs:label "Maler"@de , "painter"@en .
 # 
@@ -653,11 +647,17 @@ gw:Meer a owl:Class ;
 	rdfs:subClassOf gw:Ort ;
 	rdfs:label "Meer"@de , "sea"@en .
 # 
-# http://www.hs-anhalt.de/gameworld/Militär
+# http://www.hs-anhalt.de/gameworld/Militaer
 
-gw:Militär a owl:Class ;
+gw:Militaer a owl:Class ;
 	rdfs:subClassOf gw:Beruf , gw:Person ;
 	rdfs:label "Militär"@de , "military officer"@en .
+# 
+# http://www.hs-anhalt.de/gameworld/Moench
+
+gw:Moench a owl:Class ;
+	rdfs:subClassOf gw:Geistlicher ;
+	rdfs:label "Mönch"@de , "monk"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Mutter
 
@@ -665,22 +665,10 @@ gw:Mutter a owl:Class ;
 	rdfs:subClassOf gw:Person ;
 	rdfs:label "Mutter"@de , "mother"@en .
 # 
-# http://www.hs-anhalt.de/gameworld/Mönch
-
-gw:Mönch a owl:Class ;
-	rdfs:subClassOf gw:Geistlicher ;
-	rdfs:label "Mönch"@de , "monk"@en .
-# 
 # http://www.hs-anhalt.de/gameworld/Nachfolger
 
 gw:Nachfolger a owl:Class ;
 	rdfs:subClassOf gw:Person .
-# 
-# http://www.hs-anhalt.de/gameworld/Nationalität
-
-gw:Nationalität a owl:Class ;
-	rdfs:subClassOf gw:Class ;
-	rdfs:label "Nationalität"@de , "nationality"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Nonne
 
@@ -750,7 +738,7 @@ gw:Religion a owl:Class ;
 # http://www.hs-anhalt.de/gameworld/Ritter
 
 gw:Ritter a owl:Class ;
-	rdfs:subClassOf gw:Adliger , gw:Militär ;
+	rdfs:subClassOf gw:Adliger , gw:Militaer ;
 	rdfs:label "Ritter"@de , "knight"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Schlacht
@@ -762,13 +750,13 @@ gw:Schlacht a owl:Class ;
 # http://www.hs-anhalt.de/gameworld/Schloss
 
 gw:Schloss a owl:Class ;
-	rdfs:subClassOf gw:Ansiedlung , gw:Gebäude ;
+	rdfs:subClassOf gw:Ansiedlung , gw:Gebaeude ;
 	rdfs:label "Schloss"@de , "palace"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Schriftsteller
 
 gw:Schriftsteller a owl:Class ;
-	rdfs:subClassOf gw:Künstler ;
+	rdfs:subClassOf gw:Kuenstler ;
 	rdfs:comment "Schriftsteller sind Urheber und Verfasser literarischer Texte und zählen damit zu den Autoren."@de , "Writers are originators and authors of literarily texts and therefor belong to the authors."@en ;
 	rdfs:label "Schriftsteller"@de , "writer"@en .
 # 
@@ -793,7 +781,7 @@ gw:Skulptur a owl:Class ;
 # http://www.hs-anhalt.de/gameworld/Soldat
 
 gw:Soldat a owl:Class ;
-	rdfs:subClassOf gw:Militär ;
+	rdfs:subClassOf gw:Militaer ;
 	rdfs:label "Soldat"@de , "soldier"@en .
 # 
 # http://www.hs-anhalt.de/gameworld/Stadt
@@ -825,6 +813,12 @@ gw:Treffen a owl:Class ;
 	rdfs:subClassOf gw:Ereignis ;
 	rdfs:label "Treffen"@de , "gathering"@en .
 # 
+# http://www.hs-anhalt.de/gameworld/Universitaet
+
+gw:Universitaet a owl:Class ;
+	rdfs:subClassOf gw:Ort ;
+	rdfs:label "Universität"@de , "university"@en .
+# 
 # http://www.hs-anhalt.de/gameworld/Unternehmen
 
 gw:Unternehmen a owl:Class ;
@@ -837,9 +831,9 @@ gw:Vater a owl:Class ;
 	rdfs:subClassOf gw:Person ;
 	rdfs:label "Vater"@de , "father"@en .
 # 
-# http://www.hs-anhalt.de/gameworld/Vorgägner
+# http://www.hs-anhalt.de/gameworld/Vorgaenger
 
-gw:Vorgägner a owl:Class ;
+gw:Vorgaenger a owl:Class ;
 	rdfs:subClassOf gw:Person .
 # 
 # http://www.hs-anhalt.de/gameworld/Werk
@@ -861,6 +855,6 @@ gw:Werk a owl:Class ;
 gw:Bild rdfs:label "Bild"@de , "image"@en .
 # 
 
-gw:Krönung rdfs:label "Krönung"@de , "coronation"@en .
+gw:Kroenung rdfs:label "Krönung"@de , "coronation"@en .
 # 
 # Generated by the OWL API (version 4.2.1.20160306-0033) https://github.com/owlcs/owlapi
